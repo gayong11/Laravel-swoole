@@ -20,7 +20,8 @@ return [
     ],
     'event_handlers'           => [],
     'websocket'                => [
-        'enable' => false,
+        'enable' => true,
+        'handler' => \App\Services\WebSocketService::class,
         //'handler' => XxxWebSocketHandler::class,
     ],
     'sockets'                  => [],
@@ -80,6 +81,10 @@ return [
         'enable_reuse_port'  => true,
         'enable_coroutine'   => false,
         'http_compression'   => false,
+
+        // 每个60s检测一次所有链接, 如果有链接在600s内没有发送数据,这关闭这个链接
+        'heartbeat_idle_time' => 600,
+        'heartbeat_check_interval' => 60,
 
         // Slow log
         // 'request_slowlog_timeout' => 2,
