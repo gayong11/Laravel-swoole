@@ -35,7 +35,7 @@ return [
         //],
     ],
     'timer'                    => [
-        'enable'        => true,
+        'enable'        => false,
         'jobs'          => [
             \App\Jobs\Timer\TestCronJob::class,
             // Enable LaravelScheduleJob to run `php artisan schedule:run` every 1 minute, replace Linux Crontab
