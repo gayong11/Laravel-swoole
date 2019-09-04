@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Rotue::get('/task/test', function () {
+   $task = new \App\Jobs\TestTask('测试异步任务');
+   // 异步投递任务,触发调用任务类的handle方法
+   $success = \Hhxsv5\LaravelS\Swoole\Task\Task::deliver($task);
+   var_dump($success);
+});
