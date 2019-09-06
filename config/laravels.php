@@ -19,6 +19,7 @@ return [
         'log'           => true,
     ],
     'event_handlers'           => [
+//        'WorkerStart' => \App\Events\WorkerStartEventListener::class,
         'WorkerStart' => \App\Events\WorkerStartEventListener::class,
     ],
     'websocket'                => [
@@ -46,7 +47,11 @@ return [
         ],
         'max_wait_time' => 5,
     ],
-    'events'                   => [],
+    'events'                   => [
+        \App\Events\TestEvent::class => [
+            \App\Listeners\TestEventListener::class,
+        ],
+    ],
     'swoole_tables'            => [],
     'register_providers'       => [],
     'cleaners'                 => [

@@ -21,3 +21,9 @@ Route::get('/task/test', function () {
    $success = \Hhxsv5\LaravelS\Swoole\Task\Task::deliver($task);
    var_dump($success);
 });
+
+Route::get('/event/test', function () {
+    $event = new \App\Events\TestEvent('测试异步事件监听及处理');
+    $success = \Hhxsv5\LaravelS\Swoole\Task\Event::fire($event);
+    var_dump($success);
+});
