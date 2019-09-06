@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Event::listen('laravels.generated_response', function (Request $request, Response $response, $app) {
-            $response->header->set('header-key', 'swoole-header');
+            $response->headers->set('header-key', 'swoole-header');
         });
     }
 
